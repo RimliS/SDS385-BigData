@@ -1,0 +1,102 @@
+ \documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{verbatim,color,amssymb}
+\usepackage{hyperref}
+
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amsthm}
+%\usepackage{natbib}
+
+\usepackage{setspace}
+\usepackage[mathscr]{euscript}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{pgfplots}
+
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{lscape}
+\usepackage{bm}
+
+\usepackage[notes,backend=biber]{biblatex-chicago}
+\bibliography{sample}
+
+\def\pdfshellescape{1}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-36pt}
+\setlength{\oddsidemargin}{-25pt}
+\setlength{\evensidemargin}{10pt}
+\tolerance=500
+\renewcommand{\baselinestretch}{1.5}
+ 
+
+\def\colblue#1{\textcolor{blue}{\bf #1}}
+\def\colred#1{\textcolor{red}{\bf #1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Rimli Sengupta}
+\lhead{Exercise-1 Linear Regression}
+\rfoot{Page \thepage}
+
+%\geometry{
+ %a4paper,
+ %total={175mm,265mm},
+ %left=25mm,
+ %top=10mm,
+ %}
+
+\begin{document}
+%\begin{raggedright}
+%{\textbf {I have followed the Honor Code.  Signed:  }}\\
+%\textbf{Rimli Sengupta}
+%\end{raggedright}
+%\vspace{-1cm}
+
+%%%%%
+\baselineskip 16pt
+\section{Part-A}
+\noindent
+%\begin{itemize}
+SSE=$\frac{1}{2}(y-X\beta)^{\prime}W(y-X\beta)$\\[6pt]
+$\rightarrow$ $\frac{1}{2}(y^{\prime}-\beta^{\prime}X^{\prime})W(y-X\beta)$\\[6pt]
+$\rightarrow$ $\frac{1}{2}(y^{\prime}W-\beta^{\prime}X^{\prime}W)(y-X\beta)$\\[6pt]
+$\rightarrow$ $\frac{1}{2}(y^{\prime}Wy-y^{\prime}WX\beta-\beta^{\prime}X^{\prime}Wy+\beta^{\prime}X^{\prime}WX\beta)$\\[6pt]
+Now, $\triangledown$($\frac{1}{2}(y^{\prime}Wy-y^{\prime}WX\beta-\beta^{\prime}X^{\prime}Wy+\beta^{\prime}X^{\prime}WX\beta)$)\\[6pt]
+$\rightarrow$ $\frac{1}{2}(-y^{\prime}WX-X^{\prime}Wy+2X^{\prime}WX\beta)$ = 0\\[6pt]
+$\rightarrow$ $\frac{1}{2}(-2X^{\prime}Wy+2X^{\prime}WX\beta)$ = 0\\[6pt]
+$\rightarrow$ $X^{\prime}WX\beta = X^{\prime}Wy$
+ 
+\section{Part-B}
+\noindent
+
+$X^{\prime}WX\beta = X^{\prime}Wy$.\\
+Let $X^{\prime}W^{1/2}$=P and $W^{1/2}y$=u.\\
+Therefore the new system of linear equation is: $P^{\prime}P\beta=P^{\prime}u$.\\
+It seems that $P^{\prime}P$ is a square matrix. The above equation can be viewed as Ax=b form. 
+So this A ($P^{\prime}P$) matrix can be decomposed via LU decomposition method.
+The LU decomposition factorizes a matrix into a lower triangular matrix L and an upper triangular matrix U.
+This decomposition summarizes the process of Gaussian elimination in matrix form.\\[6pt]
+
+Singular Value Decomposition: Suppose the system of linear equations: Ax=b.\\
+The case where A is an n x n square matrix is of particular interest.
+In this case, the Singular Value Decomposition of A is given as A=US$V^{T}$, where V and U are orthogonal matrices.\\[6pt]
+
+QR Decomposition: Any real square matrix A may be decomposed as A=QR. 
+Where Q is an orthogonal matrix (its columns are orthogonal unit vectors meaning $Q^{T}Q$ = I) and R is an upper triangular matrix (also called right triangular matrix). 
+If A is invertible, then the factorization is unique if we require the diagonal elements of R to be positive.
+If instead A is a complex square matrix, then there is a decomposition A = QR where Q is a unitary matrix.
+  
+
+%\end{itemize}
+
+\end{document}
