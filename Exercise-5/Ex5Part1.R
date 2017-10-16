@@ -43,7 +43,6 @@ set.seed(123) ##Fixing seed
 
 ##Case-1: sigma^2 are all equal
 #################################################################################
-#theta <- c(seq(-2,2,len=50),rep(0,200),seq(1,3,len=50),rep(0,200))
 theta <- c(rep(2,5),rep(-2,5),rep(0,90)) ##Creating a sparse vector
 sigma <- rep(0.2,100) ##Assuming sigma^2s are all equal
 z <- list(mode="vector",length=length(theta)) ##Initialize the data vector
@@ -67,14 +66,13 @@ theta_yi <- theta_y(y=z, lambda=lambda*(sigma^2))
 
 
 ##Plotting predicted value of theta versus theta
-plot(1:length(theta),theta_yi,ty="h",main="lambda=1")
+plot(1:length(theta),theta_yi,ty="h",main="lambda=5")
 
 ##Lambda=5
 ###Mean-squared error:
 MSE_lambda <- (sum((theta_yi-theta)^2))/length(theta)
-#0.009981807
 
-##Different values of lambda:
+##MSE for different values of lambda:
 vary.lambda <- seq(0,50,len=100)
 MSE_lambda <- NULL
 
@@ -120,7 +118,7 @@ plot(1:length(theta),theta_yi,ty="l",main="lambda=0.5")
 MSE_lambda <- (sum((theta_yi-theta)^2))/length(theta)
 
 
-##Different values of lambda:
+##MSE for different values of lambda:
 vary.lambda <- seq(0,5,len=100)
 MSE_lambda <- NULL
 
