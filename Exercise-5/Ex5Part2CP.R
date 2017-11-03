@@ -25,13 +25,12 @@ test_index =  which(ind == 1)
 train      =  diabetes[ -test_index, ] 
 test       =  diabetes[  test_index, ]
 
-fit.lasso <- cv.glmnet(x = as.matrix(train[,-65]), y = train$Y, type.measure="mse",
-                       nfolds=5, alpha=1)
+fit.lasso <- cv.glmnet(x = as.matrix(train[,-65]), y = train$Y, type.measure="mse", nfolds=5, alpha=1)
 
 
 #################################################################################################
 ##CP Mallows:
-lasso_cv = cv.glmnet( x = as.matrix(diabetes[,-65]), y = diabetes$Y, alpha = 1)
+lasso_cv = cv.glmnet( x = as.matrix(diabetes[,-65]), y = diabetes$Y, nfolds=5, alpha = 1)
 
 
 lambda <- lasso_cv$glmnet.fit$lambda
