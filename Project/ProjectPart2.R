@@ -1,3 +1,4 @@
+rm(list = ls())
 #Reading data
 text <- read.csv("/Users/rimlisengupta/Dropbox/Bigdata final project/text3.csv")
 
